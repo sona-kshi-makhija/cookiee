@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crumb & Ember — Small-Batch Cookies</title>
+<meta name="description" content="Crumb & Ember bakes small-batch cookies by hand. Browse flavors, features, and prices, and order a box.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="#top" class="logo">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="17" fill="#C97A2B"/>
+        <circle cx="14" cy="15" r="2.1" fill="#241512"/>
+        <circle cx="24" cy="13" r="1.6" fill="#241512"/>
+        <circle cx="27" cy="21" r="2" fill="#241512"/>
+        <circle cx="17" cy="24" r="1.7" fill="#241512"/>
+        <circle cx="22" cy="27" r="1.4" fill="#241512"/>
+        <path d="M20 3a17 17 0 0 1 12 5" stroke="#F3C25F" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Crumb &amp; Ember</span>
+    </a>
+    <nav class="main-nav">
+      <a href="#flavors">Flavors</a>
+      <a href="#features">Why us</a>
+      <a href="#boxes">Boxes</a>
+      <a href="#order">Order</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Baked in small batches, every morning</p>
+      <h1>Cookies worth<br>breaking a<br><span class="hl">diet plan</span> for.</h1>
+      <p class="lede">No shortcuts, no mixes. Just browned butter, real chocolate, and six flavors that sell out most Fridays.</p>
+      <div class="hero-cta">
+        <a href="#flavors" class="btn btn-primary">See the flavors</a>
+        <a href="#boxes" class="btn btn-ghost">Build a box</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="stack">
+        <div class="cookie c1"><span></span><span></span><span></span><span></span></div>
+        <div class="cookie c2"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="cookie c3 bite"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAVORS -->
+  <section id="flavors" class="section">
+    <div class="wrap">
+      <h2 class="section-title">The lineup</h2>
+      <p class="section-sub">Six flavors, baked on rotation. Tap a filter to narrow it down.</p>
+
+      <div class="filters" id="filters">
+        <button class="filter-btn is-active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="classic">Classic</button>
+        <button class="filter-btn" data-filter="specialty">Specialty</button>
+        <button class="filter-btn" data-filter="vegan">Vegan</button>
+        <button class="filter-btn" data-filter="gluten-free">Gluten-free</button>
+      </div>
+
+      <p class="flip-hint">Tap a cookie for allergen &amp; nutrition info · use +/− to build your box</p>
+
+      <div class="card-grid" id="cardGrid">
+
+        <article class="card" data-tags="classic" data-name="Brown Butter Chocolate Chunk" data-price="90">
+          <div class="card-flip">
+            <div class="card-face card-front">
+              <div class="card-media media-choc" aria-hidden="true">
+                <svg viewBox="0 0 200 200" class="cookie-illustration">
+                  <circle cx="100" cy="100" r="88" fill="url(#gradChoc)"/>
+                  <circle cx="100" cy="100" r="88" fill="none" stroke="#00000022" stroke-width="4"/>
+                  <g fill="#3a2117">
+                    <ellipse cx="65" cy="70" rx="10" ry="8"/>
+                    <ellipse cx="130" cy="60" rx="8" ry="9" transform="rotate(20 130 60)"/>
+                    <ellipse cx="150" cy="110" rx="9" ry="7"/>
+                    <ellipse cx="90" cy="130" rx="11" ry="8" transform="rotate(-15 90 130)"/>
+                    <ellipse cx="55" cy="120" rx="7" ry="9"/>
+                    <ellipse cx="120" cy="150" rx="8" ry="6"/>
+                    <ellipse cx="145" cy="150" rx="6" ry="8" transform="rotate(30 145 150)"/>
+                  </g>
+                  <defs>
+                    <radialGradient id="gradChoc" cx="35%" cy="30%" r="75%">
+                      <stop offset="0%" stop-color="#d9a35c"/>
+                      <stop offset="100%" stop-color="#a9702f"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <button class="info-btn" aria-label="Show nutrition info">i</button>
+              </div>
+              <div class="card-body">
+                <span class="price-stamp">₹90</span>
+                <h3>Brown Butter Chocolate Chunk</h3>
+                <p>Browned butter, dark chocolate chunks, flaky sea salt. The one that started it all.</p>
+                <ul class="card-tags">
+                  <li>Classic</li><li>Contains nuts: no</li><li>Best served warm</li>
+                </ul>
+                <div class="qty-row">
+                  <div class="qty-control">
+                    <button class="qty-btn" data-action="minus" aria-label="Remove one">−</button>
+                    <span class="qty-value">0</span>
+                    <button class="qty-btn" data-action="plus" aria-label="Add one">+</button>
+                  </div>
+                  <button class="add-btn">Add to box</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <h4>Nutrition &amp; allergens</h4>
+              <ul class="nutri-list">
+                <li><span>Per cookie</span><strong>210 kcal</strong></li>
+                <li><span>Contains</span><strong>Gluten, dairy, egg</strong></li>
+                <li><span>Nut-free</span><strong>Yes</strong></li>
+                <li><span>Shelf life</span><strong>5 days, sealed</strong></li>
+              </ul>
+              <button class="flip-back">← Back</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="classic" data-name="Salted Caramel Pretzel" data-price="110">
+          <div class="card-flip">
+            <div class="card-face card-front">
+              <div class="card-media media-caramel" aria-hidden="true">
+                <svg viewBox="0 0 200 200" class="cookie-illustration">
+                  <circle cx="100" cy="100" r="88" fill="url(#gradCaramel)"/>
+                  <circle cx="100" cy="100" r="88" fill="none" stroke="#00000022" stroke-width="4"/>
+                  <path d="M60 90 q10 -14 20 0 q10 14 20 0 q10 -14 20 0 q10 14 20 0" fill="none" stroke="#6b3d1c" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M55 125 q10 -14 20 0 q10 14 20 0 q10 -14 20 0 q10 14 20 0" fill="none" stroke="#6b3d1c" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+                  <defs>
+                    <radialGradient id="gradCaramel" cx="35%" cy="30%" r="75%">
+                      <stop offset="0%" stop-color="#e6ac54"/>
+                      <stop offset="100%" stop-color="#b9762a"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <button class="info-btn" aria-label="Show nutrition info">i</button>
+              </div>
+              <div class="card-body">
+                <span class="price-stamp">₹110</span>
+                <h3>Salted Caramel Pretzel</h3>
+                <p>Crushed pretzels folded into a gooey caramel center, finished with flaked salt.</p>
+                <ul class="card-tags">
+                  <li>Classic</li><li>Sweet &amp; salty</li><li>Crunch factor: high</li>
+                </ul>
+                <div class="qty-row">
+                  <div class="qty-control">
+                    <button class="qty-btn" data-action="minus" aria-label="Remove one">−</button>
+                    <span class="qty-value">0</span>
+                    <button class="qty-btn" data-action="plus" aria-label="Add one">+</button>
+                  </div>
+                  <button class="add-btn">Add to box</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <h4>Nutrition &amp; allergens</h4>
+              <ul class="nutri-list">
+                <li><span>Per cookie</span><strong>240 kcal</strong></li>
+                <li><span>Contains</span><strong>Gluten, dairy</strong></li>
+                <li><span>Nut-free</span><strong>Yes</strong></li>
+                <li><span>Shelf life</span><strong>5 days, sealed</strong></li>
+              </ul>
+              <button class="flip-back">← Back</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="specialty" data-name="Matcha White Chocolate" data-price="130">
+          <div class="card-flip">
+            <div class="card-face card-front">
+              <div class="card-media media-matcha" aria-hidden="true">
+                <svg viewBox="0 0 200 200" class="cookie-illustration">
+                  <circle cx="100" cy="100" r="88" fill="url(#gradMatcha)"/>
+                  <circle cx="100" cy="100" r="88" fill="none" stroke="#00000022" stroke-width="4"/>
+                  <g fill="#fbf1e4">
+                    <circle cx="70" cy="75" r="9"/>
+                    <circle cx="130" cy="65" r="7"/>
+                    <circle cx="145" cy="115" r="8"/>
+                    <circle cx="85" cy="135" r="9"/>
+                    <circle cx="55" cy="115" r="6"/>
+                    <circle cx="120" cy="150" r="7"/>
+                  </g>
+                  <defs>
+                    <radialGradient id="gradMatcha" cx="35%" cy="30%" r="75%">
+                      <stop offset="0%" stop-color="#a9b869"/>
+                      <stop offset="100%" stop-color="#7c8f40"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <button class="info-btn" aria-label="Show nutrition info">i</button>
+              </div>
+              <div class="card-body">
+                <span class="price-stamp">₹130</span>
+                <h3>Matcha White Chocolate</h3>
+                <p>Ceremonial-grade matcha, white chocolate chips, a soft chew all the way through.</p>
+                <ul class="card-tags">
+                  <li>Specialty</li><li>Limited weekly batch</li><li>Contains nuts: no</li>
+                </ul>
+                <div class="qty-row">
+                  <div class="qty-control">
+                    <button class="qty-btn" data-action="minus" aria-label="Remove one">−</button>
+                    <span class="qty-value">0</span>
+                    <button class="qty-btn" data-action="plus" aria-label="Add one">+</button>
+                  </div>
+                  <button class="add-btn">Add to box</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <h4>Nutrition &amp; allergens</h4>
+              <ul class="nutri-list">
+                <li><span>Per cookie</span><strong>230 kcal</strong></li>
+                <li><span>Contains</span><strong>Gluten, dairy, soy</strong></li>
+                <li><span>Nut-free</span><strong>Yes</strong></li>
+                <li><span>Shelf life</span><strong>4 days, sealed</strong></li>
+              </ul>
+              <button class="flip-back">← Back</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="specialty" data-name="Double Ginger Molasses" data-price="95">
+          <div class="card-flip">
+            <div class="card-face card-front">
+              <div class="card-media media-ginger" aria-hidden="true">
+                <svg viewBox="0 0 200 200" class="cookie-illustration">
+                  <circle cx="100" cy="100" r="88" fill="url(#gradGinger)"/>
+                  <circle cx="100" cy="100" r="88" fill="none" stroke="#00000022" stroke-width="4"/>
+                  <g stroke="#5a2f14" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8">
+                    <path d="M55 75 q20 10 5 25"/>
+                    <path d="M120 60 q18 14 2 24"/>
+                    <path d="M145 120 q15 16 -4 22"/>
+                    <path d="M75 140 q20 8 8 24"/>
+                    <path d="M100 105 q18 8 4 22"/>
+                  </g>
+                  <defs>
+                    <radialGradient id="gradGinger" cx="35%" cy="30%" r="75%">
+                      <stop offset="0%" stop-color="#c4813a"/>
+                      <stop offset="100%" stop-color="#8f551f"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <button class="info-btn" aria-label="Show nutrition info">i</button>
+              </div>
+              <div class="card-body">
+                <span class="price-stamp">₹95</span>
+                <h3>Double Ginger Molasses</h3>
+                <p>Fresh and crystallized ginger, blackstrap molasses, a warm hit of clove.</p>
+                <ul class="card-tags">
+                  <li>Specialty</li><li>Spiced</li><li>Great with coffee</li>
+                </ul>
+                <div class="qty-row">
+                  <div class="qty-control">
+                    <button class="qty-btn" data-action="minus" aria-label="Remove one">−</button>
+                    <span class="qty-value">0</span>
+                    <button class="qty-btn" data-action="plus" aria-label="Add one">+</button>
+                  </div>
+                  <button class="add-btn">Add to box</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <h4>Nutrition &amp; allergens</h4>
+              <ul class="nutri-list">
+                <li><span>Per cookie</span><strong>195 kcal</strong></li>
+                <li><span>Contains</span><strong>Gluten, egg</strong></li>
+                <li><span>Nut-free</span><strong>Yes</strong></li>
+                <li><span>Shelf life</span><strong>7 days, sealed</strong></li>
+              </ul>
+              <button class="flip-back">← Back</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="vegan" data-name="Vegan Peanut Butter Oat" data-price="100">
+          <div class="card-flip">
+            <div class="card-face card-front">
+              <div class="card-media media-peanut" aria-hidden="true">
+                <svg viewBox="0 0 200 200" class="cookie-illustration">
+                  <circle cx="100" cy="100" r="88" fill="url(#gradPeanut)"/>
+                  <circle cx="100" cy="100" r="88" fill="none" stroke="#00000022" stroke-width="4"/>
+                  <g stroke="#7a5326" stroke-width="3" opacity="0.6">
+                    <path d="M40 80 L160 80"/><path d="M40 100 L160 100"/><path d="M40 120 L160 120"/>
+                    <path d="M60 50 L60 150"/><path d="M100 50 L100 150"/><path d="M140 50 L140 150"/>
+                  </g>
+                  <defs>
+                    <radialGradient id="gradPeanut" cx="35%" cy="30%" r="75%">
+                      <stop offset="0%" stop-color="#d3a35f"/>
+                      <stop offset="100%" stop-color="#a97a3a"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <button class="info-btn" aria-label="Show nutrition info">i</button>
+              </div>
+              <div class="card-body">
+                <span class="price-stamp">₹100</span>
+                <h3>Vegan Peanut Butter Oat</h3>
+                <p>Natural peanut butter, rolled oats, no dairy or eggs — still chewy in the middle.</p>
+                <ul class="card-tags">
+                  <li>Vegan</li><li>Dairy-free</li><li>Egg-free</li>
+                </ul>
+                <div class="qty-row">
+                  <div class="qty-control">
+                    <button class="qty-btn" data-action="minus" aria-label="Remove one">−</button>
+                    <span class="qty-value">0</span>
+                    <button class="qty-btn" data-action="plus" aria-label="Add one">+</button>
+                  </div>
+                  <button class="add-btn">Add to box</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <h4>Nutrition &amp; allergens</h4>
+              <ul class="nutri-list">
+                <li><span>Per cookie</span><strong>200 kcal</strong></li>
+                <li><span>Contains</span><strong>Peanuts, gluten</strong></li>
+                <li><span>Dairy-free</span><strong>Yes</strong></li>
+                <li><span>Shelf life</span><strong>6 days, sealed</strong></li>
+              </ul>
+              <button class="flip-back">← Back</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="gluten-free" data-name="Almond Flour Snickerdoodle" data-price="120">
+          <div class="card-flip">
+            <div class="card-face card-front">
+              <div class="card-media media-snicker" aria-hidden="true">
+                <svg viewBox="0 0 200 200" class="cookie-illustration">
+                  <circle cx="100" cy="100" r="88" fill="url(#gradSnicker)"/>
+                  <circle cx="100" cy="100" r="88" fill="none" stroke="#00000022" stroke-width="4"/>
+                  <path d="M100 100 m-45 0 a45 45 0 1 0 90 0 a45 45 0 1 0 -90 0" fill="none" stroke="#8a5a2b" stroke-width="5" stroke-dasharray="6 8" opacity="0.55"/>
+                  <path d="M100 100 m-25 0 a25 25 0 1 0 50 0 a25 25 0 1 0 -50 0" fill="none" stroke="#8a5a2b" stroke-width="5" stroke-dasharray="5 7" opacity="0.55"/>
+                  <defs>
+                    <radialGradient id="gradSnicker" cx="35%" cy="30%" r="75%">
+                      <stop offset="0%" stop-color="#eccb8e"/>
+                      <stop offset="100%" stop-color="#cf9f5c"/>
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <button class="info-btn" aria-label="Show nutrition info">i</button>
+              </div>
+              <div class="card-body">
+                <span class="price-stamp">₹120</span>
+                <h3>Almond Flour Snickerdoodle</h3>
+                <p>Almond flour base, cinnamon-sugar coating, crisp edge with a soft center.</p>
+                <ul class="card-tags">
+                  <li>Gluten-free</li><li>Contains nuts: yes</li><li>Cinnamon-forward</li>
+                </ul>
+                <div class="qty-row">
+                  <div class="qty-control">
+                    <button class="qty-btn" data-action="minus" aria-label="Remove one">−</button>
+                    <span class="qty-value">0</span>
+                    <button class="qty-btn" data-action="plus" aria-label="Add one">+</button>
+                  </div>
+                  <button class="add-btn">Add to box</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <h4>Nutrition &amp; allergens</h4>
+              <ul class="nutri-list">
+                <li><span>Per cookie</span><strong>180 kcal</strong></li>
+                <li><span>Contains</span><strong>Almonds, egg</strong></li>
+                <li><span>Gluten-free</span><strong>Yes</strong></li>
+                <li><span>Shelf life</span><strong>6 days, sealed</strong></li>
+              </ul>
+              <button class="flip-back">← Back</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section section-alt">
+    <div class="wrap">
+      <h2 class="section-title">Why people reorder</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <span class="feature-num">01</span>
+          <h3>Baked same-day</h3>
+          <p>Dough is mixed and baked the morning of pickup or shipping — nothing sits in a freezer.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-num">02</span>
+          <h3>Small batches only</h3>
+          <p>We cap each flavor at 60 cookies a day, so quality doesn't stretch to meet demand.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-num">03</span>
+          <h3>Free shipping over ₹800</h3>
+          <p>Orders above ₹800 ship free in insulated, cookie-safe packaging across India.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-num">04</span>
+          <h3>Allergen-labeled</h3>
+          <p>Every card on this menu lists nut and dairy content up front — no guessing at pickup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOXES -->
+  <section id="boxes" class="section">
+    <div class="wrap">
+      <h2 class="section-title">Build a box</h2>
+      <p class="section-sub">Mix and match flavors. Bigger boxes cost less per cookie.</p>
+      <div class="box-grid">
+        <div class="box">
+          <h3>The Half Dozen</h3>
+          <p class="box-count">6 cookies, your pick</p>
+          <p class="box-price">₹520</p>
+          <p class="box-per">≈ ₹86.7 / cookie</p>
+          <button class="btn btn-ghost box-add" data-box="Half Dozen" data-price="520">Add box to cart</button>
+        </div>
+        <div class="box box-featured">
+          <span class="box-badge">Most popular</span>
+          <h3>The Dozen</h3>
+          <p class="box-count">12 cookies, your pick</p>
+          <p class="box-price">₹960</p>
+          <p class="box-per">≈ ₹80 / cookie · ships free</p>
+          <button class="btn btn-primary box-add" data-box="Dozen" data-price="960">Add box to cart</button>
+        </div>
+        <div class="box">
+          <h3>The Party Tin</h3>
+          <p class="box-count">24 cookies, your pick</p>
+          <p class="box-price">₹1,800</p>
+          <p class="box-per">≈ ₹75 / cookie · ships free</p>
+          <button class="btn btn-ghost box-add" data-box="Party Tin" data-price="1800">Add box to cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER / CTA -->
+  <section id="order" class="section section-cta">
+    <div class="wrap cta-inner">
+      <h2>Ready when you are.</h2>
+      <p>Add flavors to your box above, then send the order straight to us — or pick a ready-made box.</p>
+      <a href="mailto:order@crumbandember.example" id="ctaEmailBtn" class="btn btn-primary">Email an order</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span>© <span id="year"></span> Crumb &amp; Ember. All cookies baked with intent.</span>
+    <span>Pitampura pickup window: 11am – 6pm, Tue–Sun</span>
+  </div>
+</footer>
+
+<!-- Floating cart trigger -->
+<button id="cartToggle" class="cart-toggle" aria-label="Open your box">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 7h16l-1.5 11.5a2 2 0 0 1-2 1.5H7.5a2 2 0 0 1-2-1.5L4 7Z" stroke="#241512" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M8 7V6a4 4 0 0 1 8 0v1" stroke="#241512" stroke-width="1.8" stroke-linecap="round"/>
+  </svg>
+  <span id="cartCount" class="cart-count">0</span>
+</button>
+
+<!-- Cart drawer -->
+<div id="cartOverlay" class="cart-overlay"></div>
+<aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+  <div class="cart-header">
+    <h3>Your box</h3>
+    <button id="cartClose" class="cart-close" aria-label="Close cart">&times;</button>
+  </div>
+  <div id="cartItems" class="cart-items">
+    <p class="cart-empty">Nothing in your box yet — add a flavor or two.</p>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span>Subtotal</span>
+      <strong id="cartTotal">₹0</strong>
+    </div>
+    <p id="cartShipNote" class="cart-ship-note"></p>
+    <a id="cartOrderBtn" href="mailto:order@crumbandember.example" class="btn btn-primary cart-order-btn">Send this order</a>
+  </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
